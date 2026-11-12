@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RDF Pictures</title>
+<meta name="description" content="Discover the art of visual storytelling with RDF Pictures, where we craft visual stories that engage and inspire through powerful visual media.">
+<meta name="author" content="RDF Pictures">
+<meta name="theme-color" content="#161616">
+<meta property="og:url" content="https://rdfpictures.com/">
+<meta property="og:site_name" content="RDF Pictures">
+<meta property="og:title" content="RDF Pictures">
+<meta property="og:description" content="Discover the art of visual storytelling with RDF Pictures, where we craft visual stories that engage and inspire through powerful visual media.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RDF Pictures">
+<meta name="twitter:description" content="Crafting Visual Stories">
+<link rel="canonical" href="https://rdfpictures.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23161616'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23ffffff'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #161616;
+    --bg-alt: #1b1b1b;
+    --ink: #ffffff;
+    --body: #c6c6c6;
+    --muted: #969696;
+    --line: #3a3a3a;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* ---------- Header + hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    /* Layers, top to bottom: dark overlay, your photo (images/hero.jpg),
+       and a fallback gradient that shows until a photo is added. */
+    background:
+      linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)),
+      url("images/hero.jpg") center / cover no-repeat,
+      radial-gradient(ellipse 90% 70% at 70% 20%, #4a4a4a 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 15% 85%, #333 0%, transparent 65%),
+      linear-gradient(160deg, #2b2b2b 0%, #0c0c0c 100%);
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .logo {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+    letter-spacing: .02em;
+    text-decoration: none;
+  }
+  .topbar nav a {
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .topbar nav a:hover, .topbar nav a:focus-visible { border-color: currentColor; }
+  .hero-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.25rem 6rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4.75rem);
+    line-height: 1.12;
+    max-width: 14ch;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, .45);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: clamp(3.5rem, 9vw, 6rem) 1.25rem;
+    background: var(--bg);
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+    color: var(--ink);
+    text-align: center;
+  }
+  .contact h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--muted);
+    margin: 1.25rem auto 2.5rem;
+  }
+  .contact h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  form { display: grid; gap: 1.1rem; }
+  label { display: grid; gap: .4rem; font-size: .9rem; color: var(--muted); }
+  input, textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .85rem 1rem;
+    transition: border-color .2s;
+  }
+  textarea { min-height: 9rem; resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: var(--body); }
+  button {
+    justify-self: center;
+    margin-top: .5rem;
+    font: inherit;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #161616;
+    background: var(--ink);
+    border: 0;
+    border-radius: 48px;
+    padding: .95rem 2.75rem;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  button:hover, button:focus-visible { background: var(--body); }
+  .form-note {
+    text-align: center;
+    font-size: .9rem;
+    color: var(--muted);
+    min-height: 1.5em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: .875rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="topbar">
+      <a class="logo" href="/">RDF Pictures</a>
+      <nav><a href="#contact">Contact</a></nav>
+    </div>
+    <div class="hero-body">
+      <h1>Crafting Visual Stories</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Contact Us</h2>
+        <h3>Drop us a line!</h3>
+        <form id="contact-form">
+          <label>Name
+            <input type="text" name="name" autocomplete="name">
+          </label>
+          <label>Email*
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Message
+            <textarea name="message"></textarea>
+          </label>
+          <button type="submit">Send</button>
+          <p class="form-note" id="form-note" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Copyright &copy; <span id="year">2026</span> RDF Pictures - All Rights Reserved.
+  </footer>
+
+  <script>
+    // ====== CHANGE THIS to the address that should receive messages ======
+    var CONTACT_EMAIL = "contact@rdfpictures.com";
+    // =====================================================================
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // A static site has no server to send mail, so the form opens the
+    // visitor's own email app with the message filled in.
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var name = f.elements.name.value.trim();
+      var body = f.elements.message.value.trim() +
+        "\n\n— " + (name || "Website visitor") + "\n" + f.elements.email.value.trim();
+      var subject = "Website enquiry" + (name ? " from " + name : "");
+      window.location.href = "mailto:" + CONTACT_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+      document.getElementById("form-note").textContent =
+        "Your email app should open with the message ready to send.";
+    });
+  </script>
+</body>
+</html>
