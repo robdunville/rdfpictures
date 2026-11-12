@@ -1,147 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RDF Pictures — Coming Soon</title>
-<meta name="description" content="RDF Pictures. A new site is on the way.">
-<meta name="theme-color" content="#0d0d0f">
-<meta property="og:title" content="RDF Pictures">
-<meta property="og:description" content="A new site is on the way.">
-<meta property="og:type" content="website">
+<title>RDF Pictures</title>
+<meta name="description" content="Discover the art of visual storytelling with RDF Pictures, where we craft visual stories that engage and inspire through powerful visual media.">
+<meta name="author" content="RDF Pictures">
+<meta name="theme-color" content="#161616">
 <meta property="og:url" content="https://rdfpictures.com/">
+<meta property="og:site_name" content="RDF Pictures">
+<meta property="og:title" content="RDF Pictures">
+<meta property="og:description" content="Discover the art of visual storytelling with RDF Pictures, where we craft visual stories that engage and inspire through powerful visual media.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RDF Pictures">
+<meta name="twitter:description" content="Crafting Visual Stories">
 <link rel="canonical" href="https://rdfpictures.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d0d0f'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23e8c57a' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23e8c57a'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23161616'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23ffffff'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0f;
-    --ink: #f3efe6;
-    --muted: #8d8a83;
-    --accent: #e8c57a;
-    --line: rgba(243, 239, 230, 0.14);
+    --bg: #161616;
+    --bg-alt: #1b1b1b;
+    --ink: #ffffff;
+    --body: #c6c6c6;
+    --muted: #969696;
+    --line: #3a3a3a;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
-    color: var(--ink);
-    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  /* ---------- Header + hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    min-height: 100dvh;
-    overflow: hidden;
-    position: relative;
-  }
-  /* soft projector glow */
-  body::before {
-    content: "";
-    position: absolute;
-    inset: -20%;
+    color: var(--ink);
+    /* Layers, top to bottom: dark overlay, your photo (images/hero.jpg),
+       and a fallback gradient that shows until a photo is added. */
     background:
-      radial-gradient(ellipse 50% 40% at 50% 42%, rgba(232, 197, 122, 0.13), transparent 70%),
-      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(232, 197, 122, 0.05), transparent 70%);
-    animation: breathe 9s ease-in-out infinite alternate;
-    pointer-events: none;
+      linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)),
+      url("images/hero.jpg") center / cover no-repeat,
+      radial-gradient(ellipse 90% 70% at 70% 20%, #4a4a4a 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 15% 85%, #333 0%, transparent 65%),
+      linear-gradient(160deg, #2b2b2b 0%, #0c0c0c 100%);
   }
-  /* widescreen frame lines */
-  .frame {
-    position: absolute;
-    left: 0; right: 0;
-    height: 1px;
-    background: var(--line);
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
   }
-  .frame.top { top: 12vh; }
-  .frame.bottom { bottom: 12vh; }
-
-  main {
+  .logo {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+    letter-spacing: .02em;
+    text-decoration: none;
+  }
+  .topbar nav a {
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .topbar nav a:hover, .topbar nav a:focus-visible { border-color: currentColor; }
+  .hero-body {
     flex: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 14vh 1.5rem;
-    position: relative;
-    animation: rise 1.4s cubic-bezier(.2, .7, .2, 1) both;
+    padding: 2rem 1.25rem 6rem;
   }
-  .mark {
-    width: 54px;
-    height: 54px;
-    margin-bottom: 2.25rem;
-  }
-  .mark .ring { fill: none; stroke: var(--accent); stroke-width: 1.5; }
-  .mark .dot { fill: var(--accent); }
-  h1 {
-    font-family: "Didot", "Bodoni 72", "Playfair Display", Georgia, "Times New Roman", serif;
+  .hero h1 {
+    font-family: var(--serif);
     font-weight: 400;
-    font-size: clamp(2.6rem, 9vw, 6rem);
-    letter-spacing: 0.04em;
-    line-height: 1.02;
+    font-size: clamp(2.4rem, 7vw, 4.75rem);
+    line-height: 1.12;
+    max-width: 14ch;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, .45);
   }
-  h1 span {
-    display: block;
-    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: clamp(0.8rem, 2.2vw, 1.15rem);
-    font-weight: 500;
-    letter-spacing: 0.62em;
-    text-indent: 0.62em; /* balances trailing letter-spacing */
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 1.1rem;
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: clamp(3.5rem, 9vw, 6rem) 1.25rem;
+    background: var(--bg);
   }
-  .rule {
-    width: 44px;
-    height: 1px;
-    background: var(--accent);
-    margin: 2.5rem auto;
-    opacity: 0.8;
-  }
-  .soon {
-    font-size: 0.82rem;
-    letter-spacing: 0.42em;
-    text-indent: 0.42em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  footer {
-    position: relative;
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+    color: var(--ink);
     text-align: center;
-    padding: 0 1rem 4.5vh;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
+  }
+  .contact h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--muted);
+    margin: 1.25rem auto 2.5rem;
+  }
+  .contact h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  form { display: grid; gap: 1.1rem; }
+  label { display: grid; gap: .4rem; font-size: .9rem; color: var(--muted); }
+  input, textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .85rem 1rem;
+    transition: border-color .2s;
+  }
+  textarea { min-height: 9rem; resize: vertical; }
+  input:focus, textarea:focus { outline: none; border-color: var(--body); }
+  button {
+    justify-self: center;
+    margin-top: .5rem;
+    font: inherit;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #161616;
+    background: var(--ink);
+    border: 0;
+    border-radius: 48px;
+    padding: .95rem 2.75rem;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  button:hover, button:focus-visible { background: var(--body); }
+  .form-note {
+    text-align: center;
+    font-size: .9rem;
     color: var(--muted);
+    min-height: 1.5em;
   }
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: none; }
-  }
-  @keyframes breathe {
-    from { opacity: 0.75; transform: scale(1); }
-    to   { opacity: 1;    transform: scale(1.06); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    main, body::before { animation: none; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    font-size: .875rem;
+    color: var(--muted);
   }
 </style>
 </head>
 <body>
-  <div class="frame top" aria-hidden="true"></div>
-  <div class="frame bottom" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="topbar">
+      <a class="logo" href="/">RDF Pictures</a>
+      <nav><a href="#contact">Contact</a></nav>
+    </div>
+    <div class="hero-body">
+      <h1>Crafting Visual Stories</h1>
+    </div>
+  </header>
 
   <main>
-    <svg class="mark" viewBox="0 0 54 54" aria-hidden="true">
-      <circle class="ring" cx="27" cy="27" r="25"/>
-      <circle class="ring" cx="27" cy="27" r="15" opacity=".45"/>
-      <circle class="dot" cx="27" cy="27" r="4.5"/>
-    </svg>
-    <h1>RDF<span>Pictures</span></h1>
-    <div class="rule" aria-hidden="true"></div>
-    <p class="soon">Coming soon</p>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Contact Us</h2>
+        <h3>Drop us a line!</h3>
+        <form id="contact-form">
+          <label>Name
+            <input type="text" name="name" autocomplete="name">
+          </label>
+          <label>Email*
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Message
+            <textarea name="message"></textarea>
+          </label>
+          <button type="submit">Send</button>
+          <p class="form-note" id="form-note" role="status"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <footer>&copy; <span id="y">2026</span> RDF Pictures</footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <footer>
+    Copyright &copy; <span id="year">2026</span> RDF Pictures - All Rights Reserved.
+  </footer>
+
+  <script>
+    // ====== CHANGE THIS to the address that should receive messages ======
+    var CONTACT_EMAIL = "contact@rdfpictures.com";
+    // =====================================================================
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // A static site has no server to send mail, so the form opens the
+    // visitor's own email app with the message filled in.
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var name = f.elements.name.value.trim();
+      var body = f.elements.message.value.trim() +
+        "\n\n— " + (name || "Website visitor") + "\n" + f.elements.email.value.trim();
+      var subject = "Website enquiry" + (name ? " from " + name : "");
+      window.location.href = "mailto:" + CONTACT_EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+      document.getElementById("form-note").textContent =
+        "Your email app should open with the message ready to send.";
+    });
+  </script>
 </body>
 </html>
