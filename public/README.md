@@ -1,0 +1,16 @@
+# rdfpictures
+
+Source for [rdfpictures.com](https://rdfpictures.com).
+
+- `public/` — the deployed site (static HTML, no build step)
+- `public/index.html` — coming-soon page
+
+## Deploy (Cloudflare)
+
+Connected to Cloudflare via Git. Settings:
+
+- Build command: *(none)*
+- Build output directory: `public`
+- Production branch: `main`
+
+Every push to `main` deploys automatically.
